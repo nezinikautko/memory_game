@@ -1,0 +1,20 @@
+body{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+    background-color: #6B8F95;
+    flex-direction: column;
+}
+
+.game_board{
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: repeat(5, 100px);
+    gap: 8px;
+
+}
+.card{
+    width: 100px;
+    height: 100px;
+}
