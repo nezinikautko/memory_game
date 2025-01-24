@@ -6,9 +6,25 @@ body{
     background-color: #6B8F95;
     flex-direction: column;
 }
+.start_btn{
+    width: 15vw;
+    height: 10vh;
+    background-color: cornflowerblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 60% 30%;
+}
+.start_btn:hover{
+    transform: scale(1.05) rotate(360deg);
+    transition-duration: 0.8s;
+    background-color:#f2f7b8;
+    cursor: pointer;
 
+}
 .game_board{
-    display: grid;
+    display: none;
     grid-template-columns: repeat(5, 100px);
     grid-template-rows: repeat(5, 100px);
     gap: 8px;
