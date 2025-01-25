@@ -32,4 +32,28 @@ body{
 .card{
     width: 100px;
     height: 100px;
+    position: relative;
+    perspective: 1000px;
+}
+
+.card .faceup, .card .facedown{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 5px;
+}
+
+.card .facedown{
+    transform: rotate(180deg);
+    background-size: cover;
+    background-position:center;
+}
+
+.card .faceup{
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
 }
