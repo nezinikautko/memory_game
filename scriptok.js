@@ -41,10 +41,51 @@ images_2.forEach((img, i) =>{
     game_board.appendChild(card)
 })
 
-let turned_cards = []
+let flipped_cards = []
 let pairs = 0
 
 game_board.addEventListener("click", (event) => {
+    
     let clicked_cards = event.target.closest(".card")
-    console.log(clicked_cards)
+    
+    if(
+        !clicked_cards || flipped_cards.includes(clicked_cards) || clicked_cards.classList.contains("pairs_found")
+    )return
+        clicked_cards.classList.add("flipped")
+        flipped_cards.push(clicked_cards)
+        console.log(flipped_cards)
+    
+    if(flipped_cards.length === 2){
+        let [firstCard, secondCard] = flipped_cards
+        let first_image = firstCard.querySelector(".down").style.backgroundImage
+        let second_image = secondCard.querySelector(".down").style.backgroundImage
+
+        if(first_image === second_image){
+            firstCard.classList.add("pairs_found")
+            secondCard.classList.add("pairs_found")
+            //atrasto kartinju iznemšana animacija
+            anime({
+                targets: [firstCard, secondCard],
+                scale: [1, 0],
+                duration: 1000,
+                easing: 'linear',
+                complete: () => {
+                    firstCard.style.visibility = "hidden"
+                    secondCard.style.visibility = "hidden"
+                    pairs += 2
+
+                    if (pairs === images_2.length){
+                        alert("ЗАКОНЧИЛАСЬ ЖЫЗНЬ!")
+                        window.location.reload()
+                    }
+                }
+            })
+        }else{
+            setTimeout(() => {
+                firstCard.classList.remove("flipped")               
+                secondCard.classList.remove("flipped")   
+            }, 1000)
+        }
+        flipped_cards = []
+    }
 })
