@@ -11,7 +11,7 @@ start_btn.addEventListener("click", function(){
         rotate:540,
         easing: 'linear'
     }).finished.then(function(){
-       start_btn.style.display = 'none' 
+       start_btn.style.display = 'none'
     })
 })
 
@@ -30,10 +30,10 @@ images_2.forEach((img, i) =>{
     card.dataset.id = i
     
     let faceup = document.createElement("div")
-    faceup.classList.add("face")
+    faceup.classList.add("faceup")
     
     let facedown = document.createElement("div")
-    facedown.classList.add("down")
+    facedown.classList.add("facedown")
     facedown.style.backgroundImage = `url(${img})`
 
     card.appendChild(faceup)
@@ -57,8 +57,8 @@ game_board.addEventListener("click", (event) => {
     
     if(flipped_cards.length === 2){
         let [firstCard, secondCard] = flipped_cards
-        let first_image = firstCard.querySelector(".down").style.backgroundImage
-        let second_image = secondCard.querySelector(".down").style.backgroundImage
+        let first_image = firstCard.querySelector(".facedown").style.backgroundImage
+        let second_image = secondCard.querySelector(".facedown").style.backgroundImage
 
         if(first_image === second_image){
             firstCard.classList.add("pairs_found")
@@ -70,8 +70,8 @@ game_board.addEventListener("click", (event) => {
                 duration: 1000,
                 easing: 'linear',
                 complete: () => {
-                    firstCard.style.visibility = "hidden"
-                    secondCard.style.visibility = "hidden"
+                    firstCard.querySelector(".facedown").style.backgroundImage = "none"
+                    secondCard.querySelector(".facedown").style.backgroundImage = "none"
                     pairs += 2
 
                     if (pairs === images_2.length){
