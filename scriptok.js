@@ -5,9 +5,8 @@ start_btn.addEventListener("click", function(){
     game_board.style.display = "grid";
     anime({
         targets: '.start_btn',
-        //translateY: '810px',
-        duration: 1500,
-        translateX: '810px',
+        duration: 1000,
+        translateX: '1150px',
         rotate:540,
         easing: 'linear'
     }).finished.then(function(){
@@ -84,7 +83,7 @@ game_board.addEventListener("click", (event) => {
             setTimeout(() => {
                 firstCard.classList.remove("flipped")               
                 secondCard.classList.remove("flipped")   
-            }, 1000)
+            }, 400)
         }
         flipped_cards = []
     }
