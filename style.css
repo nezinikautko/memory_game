@@ -3,30 +3,13 @@ body{
     justify-content:center;
     align-items: center;
     height: 100vh;
-    background-color: #6B8F95;
+    background-color: #9fc9ff;
     flex-direction: column;
-}
-.start_btn{
-    width: 15vw;
-    height: 10vh;
-    background-color: cornflowerblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    border-radius: 60% 30%;
-}
-.start_btn:hover{
-    transform: scale(1.05);
-    transition-duration: 0.8s;
-    background-color:#f2f7b8;
-    cursor: pointer;
-
 }
 .game_board{
     display: none;
-    grid-template-columns: repeat(6, 120px);
-    grid-template-rows: repeat(5, 100px);
+    grid-template-columns: repeat(6, 140px);
+    grid-template-rows: repeat(5, 120px);
     gap: 8px;
 }
 .card{
@@ -55,7 +38,7 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
-    background-color:rgb(59, 17, 175);
+    background-color:#0c5b83;
 }
 
 .card.flipped .faceup{
@@ -63,4 +46,19 @@ body{
 }
 .card.flipped .facedown{
     transform: rotateY(0deg);
+}
+
+h1{
+    margin:0 0 20px;
+    padding: 0;
+}
+
+@media (max-width: 768px){
+    .game_board{
+        display: none;
+        grid-template-columns: repeat(5, 90px);
+        grid-template-rows: repeat(6, 90px);
+        gap: 4px;
+    }
+    
 }
